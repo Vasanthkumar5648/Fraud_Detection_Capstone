@@ -6,7 +6,9 @@ from sklearn.metrics import accuracy_score, roc_auc_score, confusion_matrix, roc
 from xgboost import XGBClassifier
 from sklearn.decomposition import PCA
 
-df =pd.read_csv('https://raw.github.com/Vasanthkumar5648/fraud_cap/main/Fraud_Analysis_Dataset.csv')df['type'] = LabelEncoder().fit_transform(df['type'])
+df =pd.read_csv('https://raw.github.com/Vasanthkumar5648/fraud_cap/main/Fraud_Analysis_Dataset.csv')
+
+df['type'] = LabelEncoder().fit_transform(df['type'])
 
 df = df.drop(['nameOrig', 'nameDest'], axis=1)
 
