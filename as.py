@@ -36,24 +36,6 @@ y = df_model['isFraud']
 # Train-test split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
-from imblearn.over_sampling import SMOTE
-#Apply SMOTE
-smote = SMOTE(random_state=42)
-X_train_sm, y_train_sm = smote.fit_resample(X_train, y_train)
-
-# PCA for dimensionality reduction (keep 95% variance)
-pca = PCA(0.95, random_state=42)
-X_train_pca = pca.fit_transform(X_train_sm)
-X_test_pca = pca.transform(X_test)
-
-### 🤖 Training Models and Evaluating Performance
-#We train classifiers and evaluate them using metrics like accuracy, precision, recall, F1, and ROC-AUC.
-#Include:
-#XGBoost
-
-model = XGBClassifier(use_label_encoder=False, eval_metric='logloss', random_state=42)
-model.fit(X_train_pca, y_train_sm)
-
 import streamlit as st
 st.title("💳 Fraud Detection System")
 
