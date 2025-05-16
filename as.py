@@ -23,6 +23,12 @@ df_model.drop(['nameOrig', 'nameDest'], axis=1, inplace=True)
 le = LabelEncoder()
 df_model['type'] = le.fit_transform(df_model['type'])
 
+df['errorBalanceOrig'] = df['oldbalanceOrg'] - df['newbalanceOrig']
+df['errorBalanceDest'] = df['newbalanceDest'] - df['oldbalanceDest']
+
+# Drop IDs
+df = df.drop(['nameOrig', 'nameDest'], axis=1)
+
 # Define features and target
 X = df_model.drop('isFraud', axis=1)
 y = df_model['isFraud']
@@ -31,3 +37,6 @@ y = df_model['isFraud']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
 from imblearn.over_sampling import SMOTE
+#Apply SMOTE
+smote = SMOTE(random_state=42)
+X_train_sm, y_train_sm = smote.fit_resample(X_train, y_train)
