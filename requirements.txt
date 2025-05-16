@@ -6,3 +6,5 @@ lightgbm
 matplotlib
 seaborn
 joblib
+tensorflow
+transformers
