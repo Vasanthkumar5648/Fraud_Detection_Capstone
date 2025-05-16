@@ -1,10 +1,11 @@
-streamlit
-pandas
-scikit-learn
-xgboost
-lightgbm
-matplotlib
-seaborn
-joblib
-tensorflow
-transformers
+streamlit==1.32.2
+pandas==2.1.4
+numpy==1.26.2
+scikit-learn==1.3.2
+tensorflow==2.15.0  # Includes tensorflow.keras
+xgboost==2.0.3
+matplotlib==3.8.2
+seaborn==0.13.0
+joblib==1.3.2
+transformers==4.36.2
+rich>=10.14.0,<14  # For Streamlit compatibility
