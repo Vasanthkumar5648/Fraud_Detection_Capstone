@@ -97,6 +97,9 @@ elif page == "Model Performance":
     # Classification report
     st.subheader("Classification Report")
     st.code(classification_report(y_test, y_pred))
+    st.code(precision = precision_score(y_test, y_pred))
+    st.code(recall = recall_score(y_test, y_pred))
+    st.code(f1 = f1_score(y_test, y_pred))
     
     # Confusion matrix
     st.subheader("Confusion Matrix")
