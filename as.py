@@ -17,8 +17,8 @@ df['errorBalanceDest'] = df['newbalanceDest'] - df['oldbalanceDest']
 df = df.drop(['nameOrig', 'nameDest'], axis=1)
 
 # Define features and target
-X = df_model.drop('isFraud', axis=1)
-y = df_model['isFraud']
+X = df.drop('isFraud', axis=1)
+y = df['isFraud']
 
 # Train-test split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
