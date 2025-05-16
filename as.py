@@ -53,3 +53,7 @@ X_test_pca = pca.transform(X_test)
 
 model = XGBClassifier(use_label_encoder=False, eval_metric='logloss', random_state=42)
 model.fit(X_train_pca, y_train_sm)
+
+import streamlit as st
+st.title("💳 Fraud Detection System")
+
