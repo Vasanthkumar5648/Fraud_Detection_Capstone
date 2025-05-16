@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from imblearn.over_sampling import SMOTE
 from sklearn.decomposition import PCA
 from xgboost import XGBClassifier
-from sklearn.metrics import classification_report, confusion_matrix, roc_curve,roc_auc_score,accuracy_score
+from sklearn.metrics import classification_report, confusion_matrix, roc_curve,roc_auc_score,accuracy_score,auc
 
 
 # Page configuration
