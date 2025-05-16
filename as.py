@@ -38,3 +38,5 @@ model.fit(X_train_pca, y_train_sm)
 import streamlit as st
 st.title("💳 Fraud Detection System")
 
+st.markdown("""
+Welcome to the Fraud Detection App! """)
