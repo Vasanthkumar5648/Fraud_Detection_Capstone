@@ -10,8 +10,6 @@ df =pd.read_csv('https://raw.github.com/Vasanthkumar5648/fraud_cap/main/Fraud_An
 
 df['type'] = LabelEncoder().fit_transform(df['type'])
 
-df = df.drop(['nameOrig', 'nameDest'], axis=1)
-
 # Feature: Difference in balances
 df['errorBalanceOrig'] = df['oldbalanceOrg'] - df['newbalanceOrig']
 df['errorBalanceDest'] = df['newbalanceDest'] - df['oldbalanceDest']
