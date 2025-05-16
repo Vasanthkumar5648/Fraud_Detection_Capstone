@@ -27,6 +27,12 @@ from imblearn.over_sampling import SMOTE
 smote = SMOTE(random_state=42)
 X_train_sm, y_train_sm = smote.fit_resample(X_train, y_train)
 
+from sklearn.decomposition import PCA
+# PCA for dimensionality reduction (keep 95% variance)
+pca = PCA(0.95, random_state=42)
+X_train_pca = pca.fit_transform(X_train_sm)
+X_test_pca = pca.transform(X_test)
+
 import streamlit as st
 st.title("💳 Fraud Detection System")
 
