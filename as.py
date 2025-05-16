@@ -6,27 +6,14 @@ from sklearn.metrics import accuracy_score, roc_auc_score, confusion_matrix, roc
 from xgboost import XGBClassifier
 from sklearn.decomposition import PCA
 
-df =pd.read_csv('https://raw.github.com/Vasanthkumar5648/fraud_cap/main/Fraud_Analysis_Dataset.csv')
+df =pd.read_csv('https://raw.github.com/Vasanthkumar5648/fraud_cap/main/Fraud_Analysis_Dataset.csv')df['type'] = LabelEncoder().fit_transform(df['type'])
 
-# Preprocessing
-df_model = df.copy()
+df = df.drop(['nameOrig', 'nameDest'], axis=1)
 
-# Extract basic NLP features from nameOrig
-df_model['nameOrig_len'] = df_model['nameOrig'].apply(len)
-df_model['nameOrig_digit_count'] = df_model['nameOrig'].str.count(r'\d')
-df_model['nameOrig_alpha_count'] = df_model['nameOrig'].str.count(r'[A-Za-z]')
-
-# Drop high-cardinality columns
-df_model.drop(['nameOrig', 'nameDest'], axis=1, inplace=True)
-
-# Encode 'type'
-le = LabelEncoder()
-df_model['type'] = le.fit_transform(df_model['type'])
-
+# Feature: Difference in balances
 df['errorBalanceOrig'] = df['oldbalanceOrg'] - df['newbalanceOrig']
 df['errorBalanceDest'] = df['newbalanceDest'] - df['oldbalanceDest']
 
-# Drop IDs
 df = df.drop(['nameOrig', 'nameDest'], axis=1)
 
 # Define features and target
