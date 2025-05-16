@@ -51,5 +51,5 @@ X_test_pca = pca.transform(X_test)
 #Include:
 #XGBoost
 
-models = XGBClassifier(use_label_encoder=False, eval_metric='logloss', random_state=42)
+model = XGBClassifier(use_label_encoder=False, eval_metric='logloss', random_state=42)
 model.fit(X_train_pca, y_train_sm)
