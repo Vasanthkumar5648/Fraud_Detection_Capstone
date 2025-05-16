@@ -129,6 +129,9 @@ elif page == "Model Performance":
     # Metrics
     st.metric("ROC AUC Score", f"{roc_auc_score(y_test, y_pred_proba):.4f}")
     st.metric("Accuracy Score", f"{accuracy_score(y_test, y_pred):.4f}")
+    st.metric("Precision", f"{precision_score(y_test, y_pred):.4f}")
+    st.metric("Recall",f"{recall_score(y_test, y_pred):.4f}")
+    st.metric("F1 Score",f"{f1_score(y_test, y_pred):.4f}")
 
 # Transaction Checker page
 elif page == "Transaction Checker":
