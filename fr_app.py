@@ -113,6 +113,15 @@ elif page == "Transaction Checker":
                             errorBalanceOrig, errorBalanceDest]])
         
         # Apply PCA and predict
+        def load_and_preprocess_data():
+        # Load data
+        df = pd.read_csv('https://raw.github.com/Vasanthkumar5648/fraud_cap/main/Fraud_Analysis_Dataset.csv')
+    
+        # Preprocessing
+        df['type'] = LabelEncoder().fit_transform(df['type'])
+        df['errorBalanceOrig'] = df['oldbalanceOrg'] - df['newbalanceOrig']
+        df['errorBalanceDest'] = df['newbalanceDest'] - df['oldbalanceDest']
+        df = df.drop(['nameOrig', 'nameDest'], axis=1)
         # Split data
         X = df.drop('isFraud', axis=1)
         y = df['isFraud']
