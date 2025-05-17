@@ -113,7 +113,6 @@ elif page == "Transaction Checker":
                             errorBalanceOrig, errorBalanceDest]])
         
         # Apply PCA and predict
-        def load_and_preprocess_data():
         # Load data
         df = pd.read_csv('https://raw.github.com/Vasanthkumar5648/fraud_cap/main/Fraud_Analysis_Dataset.csv')
     
