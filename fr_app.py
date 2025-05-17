@@ -117,7 +117,7 @@ elif page == "Transaction Checker":
         prediction = model.predict(features_pca)
         prediction_proba = model.predict_proba(features_pca)
 
-# Display results
+        # Display results
         st.subheader("Result")
         if prediction[0] == 1:
             st.error("🚨 Fraud Detected!")
