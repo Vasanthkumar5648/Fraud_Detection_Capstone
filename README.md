@@ -32,5 +32,6 @@ streamlit run app.py
 - joblib
 
 ## Author
-- 🛡️ Fraud Detection Capstone Team
+- vasantha kumar
+- 
 
