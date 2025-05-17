@@ -33,5 +33,5 @@ streamlit run app.py
 
 ## Author
 - vasantha kumar
-- 
+
 
