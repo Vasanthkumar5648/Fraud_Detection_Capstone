@@ -151,14 +151,14 @@ elif page == "Transaction Checker":
             amount = st.selectbox("Amount ($)", list(range(0,1000,10)))
             
         with col2:
-            oldbalanceOrg = st.number_input("Originator Old Balance", 
-                                          min_value=0.0, value=1000.0, step=0.01)
-            newbalanceOrig = st.number_input("Originator New Balance", 
-                                           min_value=0.0, value=0.0, step=0.01)
-            oldbalanceDest = st.number_input("Destination Old Balance", 
-                                           min_value=0.0, value=0.0, step=0.01)
-            newbalanceDest = st.number_input("Destination New Balance", 
-                                           min_value=0.0, value=1000.0, step=0.01)
+            oldbalanceOrg = st.selectbox("Originator Old Balance", 
+                                        list(range(0,1000,10)))
+            newbalanceOrig = st.selectbox("Originator New Balance", 
+                                           list(range(0,1000,10)))
+            oldbalanceDest = st.selectbox("Destination Old Balance", 
+                                           list(range(0,1000,10)))
+            newbalanceDest = st.selectbox("Destination New Balance", 
+                                           list(range(0,1000,10)))
         
         submitted = st.form_submit_button("Check Transaction")
     
