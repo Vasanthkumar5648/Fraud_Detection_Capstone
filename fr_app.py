@@ -54,4 +54,83 @@ def load_and_preprocess_data():
   
   # Sidebar navigation
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Home", "Model Performance", "Transaction Checker"])
+page = st.sidebar.radio("Go to", ["Home","Transaction Checker"])
+
+if page == "Home":
+    st.header("About This Application")
+    st.write("""
+    This fraud detection system helps identify suspicious financial transactions using advanced machine learning techniques.
+    
+    ### Key Features:
+    - Uses XGBoost classifier for high accuracy
+    - Handles class imbalance with SMOTE
+    - Reduces dimensionality with PCA
+    - Provides detailed performance metrics
+    - Interactive transaction checking
+    
+    ### Dataset Information:
+    The model was trained on a dataset containing:
+    - Over 6 million transactions
+    - 10 features per transaction
+    - Highly imbalanced classes (fraud cases are rare)
+    """)
+    
+elif page == "Transaction Checker":
+    st.header("Transaction Fraud Checker")
+    st.write("Enter transaction details to check for potential fraud:")
+    
+    with st.form("transaction_form"):
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            step = st.selectbox("Hour of Transaction (1-744)",list(range(1,744,10)))
+            transaction_type = st.selectbox("Transaction Type", 
+                                          ["CASH_IN", "CASH_OUT", "DEBIT", "PAYMENT", "TRANSFER"])
+            amount = st.selectbox("Amount ($)", list(range(0,1000,10)))
+            
+        with col2:
+            oldbalanceOrg = st.selectbox("Originator Old Balance", 
+                                        list(range(0,1000,10)))
+            newbalanceOrig = st.selectbox("Originator New Balance", 
+                                           list(range(0,1000,10)))
+            oldbalanceDest = st.selectbox("Destination Old Balance", 
+                                           list(range(0,1000,10)))
+            newbalanceDest = st.selectbox("Destination New Balance", 
+                                           list(range(0,1000,10)))
+        
+        submitted = st.form_submit_button("Check Transaction")
+if submitted:
+        # Process input
+        type_mapping = {"CASH_IN": 0, "CASH_OUT": 1, "DEBIT": 2, "PAYMENT": 3, "TRANSFER": 4}
+        transaction_type_encoded = type_mapping[transaction_type]
+        
+        errorBalanceOrig = oldbalanceOrg - newbalanceOrig
+        errorBalanceDest = newbalanceDest - oldbalanceDest
+        
+        features = np.array([[step, transaction_type_encoded, amount, 
+                            oldbalanceOrg, newbalanceOrig, 
+                            oldbalanceDest, newbalanceDest,
+                            errorBalanceOrig, errorBalanceDest]])
+        
+        # Apply PCA and predict
+        features_pca = pca.transform(features)
+        prediction = model.predict(features_pca)
+        prediction_proba = model.predict_proba(features_pca)
+
+# Display results
+        st.subheader("Result")
+        if prediction[0] == 1:
+            st.error("🚨 Fraud Detected!")
+            st.warning("This transaction has been flagged as potentially fraudulent.")
+        else:
+            st.success("✅ Legitimate Transaction")
+            st.info("This transaction appears to be legitimate.")
+        
+        st.write(f"Fraud Probability: {prediction_proba[0][1]*100:.2f}%")
+        
+        # Show probability gauge
+        fig, ax = plt.subplots(figsize=(6, 1))
+        ax.barh(['Fraud Risk'], [prediction_proba[0][1]], color='red' if prediction[0] == 1 else 'green')
+        ax.set_xlim(0, 1)
+        ax.set_title('Fraud Probability Gauge')
+        st.pyplot(fig)
