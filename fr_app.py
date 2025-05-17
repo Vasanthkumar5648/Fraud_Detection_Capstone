@@ -113,6 +113,8 @@ elif page == "Transaction Checker":
                             errorBalanceOrig, errorBalanceDest]])
         
         # Apply PCA and predict
+        from sklearn.decomposition import PCA
+    
         pca = PCA(0.95, random_state=42)
         features_pca = pca.transform(features)
         prediction = model.predict(features_pca)
