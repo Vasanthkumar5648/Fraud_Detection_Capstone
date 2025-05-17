@@ -148,7 +148,7 @@ elif page == "Transaction Checker":
             step = st.selectbox("Hour of Transaction (1-744)",list(range(1,744,10)))
             transaction_type = st.selectbox("Transaction Type", 
                                           ["CASH_IN", "CASH_OUT", "DEBIT", "PAYMENT", "TRANSFER"])
-            amount = st.selectbox("Amount ($)", list(range(0,1000,10)
+            amount = st.selectbox("Amount ($)", list(range(0,1000,10)))
             
         with col2:
             oldbalanceOrg = st.number_input("Originator Old Balance", 
