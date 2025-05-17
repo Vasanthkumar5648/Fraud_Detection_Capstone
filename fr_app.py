@@ -121,7 +121,10 @@ elif page == "Transaction Checker":
         df['type'] = LabelEncoder().fit_transform(df['type'])
         df['errorBalanceOrig'] = df['oldbalanceOrg'] - df['newbalanceOrig']
         df['errorBalanceDest'] = df['newbalanceDest'] - df['oldbalanceDest']
+        
         df = df.drop(['nameOrig', 'nameDest'], axis=1)
+        
+        
         # Split data
         X = df.drop('isFraud', axis=1)
         y = df['isFraud']
