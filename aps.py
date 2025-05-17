@@ -146,7 +146,7 @@ elif page == "Transaction Checker":
         
         with col1:
             step = st.number_input("Hour of Transaction (1-744)", 
-                                  min_value=1, max_value=744, value=1)
+                                  min_value=1, max_value=744, value=10)
             transaction_type = st.selectbox("Transaction Type", 
                                           ["CASH_IN", "CASH_OUT", "DEBIT", "PAYMENT", "TRANSFER"])
             amount = st.number_input("Amount ($)", min_value=0.0, value=1000.0, step=0.01)
