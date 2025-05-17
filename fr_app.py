@@ -116,6 +116,8 @@ elif page == "Transaction Checker":
         from sklearn.decomposition import PCA
     
         pca = PCA(0.95, random_state=42)
+        X_train_pca = pca.fit_transform(X_train_sm)
+        X_test_pca = pca.transform(X_test)
         features_pca = pca.transform(features)
         prediction = model.predict(features_pca)
         prediction_proba = model.predict_proba(features_pca)
