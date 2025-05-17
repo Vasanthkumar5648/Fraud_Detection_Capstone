@@ -99,7 +99,7 @@ elif page == "Transaction Checker":
                                            list(range(0,1000,10)))
         
         submitted = st.form_submit_button("Check Transaction")
-if submitted:
+    if submitted:
         # Process input
         type_mapping = {"CASH_IN": 0, "CASH_OUT": 1, "DEBIT": 2, "PAYMENT": 3, "TRANSFER": 4}
         transaction_type_encoded = type_mapping[transaction_type]
