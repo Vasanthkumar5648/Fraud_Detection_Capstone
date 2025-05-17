@@ -113,6 +113,14 @@ elif page == "Transaction Checker":
                             errorBalanceOrig, errorBalanceDest]])
         
         # Apply PCA and predict
+        # Split data
+        X = df.drop('isFraud', axis=1)
+        y = df['isFraud']
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+    
+        # Handle imbalance with SMOTE
+        smote = SMOTE(random_state=42)
+        X_train_sm, y_train_sm = smote.fit_resample(X_train, y_train)
         from sklearn.decomposition import PCA
     
         pca = PCA(0.95, random_state=42)
