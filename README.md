@@ -50,6 +50,17 @@ This project is a complete fraud detection pipeline that includes:
 
 
 ## ⚙️ Installation
+1. Clone the repository:
+2. Install requirements
+
+```bash
+git clone https://github.com/your-username/fraud-detection-capstone.git
+cd fraud-detection-capstone
 
 ## 🧪 Model
 
+## 📁 Directory Structure
+
+## 👨‍💻  Author
+
+## 📄 License
