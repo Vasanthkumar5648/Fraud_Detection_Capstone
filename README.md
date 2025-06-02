@@ -51,19 +51,5 @@ This project is a complete fraud detection pipeline that includes:
 
 ## ⚙️ Installation
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/your-username/fraud-detection-capstone.git
-cd fraud-detection-capstone
-2.Install dependencies:
-```bash
-Copy
-Edit
-pip install -r requirements.txt
-
----
 ## 🧪 Model
-Models used in this project:
 
-RandomForestClassifier (default)
