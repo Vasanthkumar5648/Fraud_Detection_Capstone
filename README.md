@@ -58,7 +58,7 @@ pip install -r requirements.txt
 3.Run the Streamlit app:
 streamlit run app.py
 
------
+---
 
 ## 📦 Requirements:
 Listed in requirements.txt:
@@ -71,12 +71,16 @@ Listed in requirements.txt:
 -seaborn
 -joblib
 
-----
+---
 ## 🧪 Model:
 Models used in this project:
 -RandomForestClassifier (default)
 
+---
+
 ## 👨‍💻  Author
 Vasantha Kumar
+
+---
 ## 📄 License
 This project is licensed under the MIT License.
