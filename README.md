@@ -61,3 +61,9 @@ cd fraud-detection-capstone
 Copy
 Edit
 pip install -r requirements.txt
+
+
+##🧪 Model
+Models used in this project:
+
+RandomForestClassifier (default)
