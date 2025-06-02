@@ -14,7 +14,6 @@ A machine learning web application to identify fraudulent financial transactions
 - [Features](#features)
 - [Demo](#demo)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Model](#model)
 - [Requirements](#requirements)
 - [Author](#author)
