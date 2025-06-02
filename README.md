@@ -62,8 +62,8 @@ Copy
 Edit
 pip install -r requirements.txt
 
-
-##🧪 Model
+---
+## 🧪 Model
 Models used in this project:
 
 RandomForestClassifier (default)
