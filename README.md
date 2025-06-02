@@ -16,7 +16,6 @@ A machine learning web application to identify fraudulent financial transactions
 - [Installation](#installation)
 - [Usage](#usage)
 - [Model](#model)
-- [Directory Structure](#directory-structure)
 - [Requirements](#requirements)
 - [Author](#author)
 - [License](#license)
@@ -51,7 +50,7 @@ This project is a complete fraud detection pipeline that includes:
 
 ## ⚙️ Installation
 1. Clone the repository:
-git clone https://github.com/your-username/fraud-detection-capstone.git
+git clone (https://github.com/Vasanthkumar5648/Titanic_Machine_Learning)
 cd fraud-detection-capstone
 
 2. Install requirements:
@@ -62,10 +61,23 @@ streamlit run app.py
 
 -----
 
-## 🧪 Model
+## 📦 Requirements:
+Listed in requirements.txt:
+-streamlit
+-pandas
+-scikit-learn
+-xgboost
+-lightgbm
+-matplotlib
+-seaborn
+-joblib
 
-## 📁 Directory Structure
+----
+## 🧪 Model:
+Models used in this project:
+-RandomForestClassifier (default)
 
 ## 👨‍💻  Author
-
+Vasantha Kumar
 ## 📄 License
+This project is licensed under the MIT License.
