@@ -51,12 +51,15 @@ This project is a complete fraud detection pipeline that includes:
 
 ## ⚙️ Installation
 1. Clone the repository:
-      git clone https://github.com/your-username/fraud-detection-capstone.git
-      cd fraud-detection-capstone
+git clone https://github.com/your-username/fraud-detection-capstone.git
+cd fraud-detection-capstone
+
 2. Install requirements:
 pip install -r requirements.txt
+
 3.Run the Streamlit app:
 streamlit run app.py
+
 -----
 
 ## 🧪 Model
