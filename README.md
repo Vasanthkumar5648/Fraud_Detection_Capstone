@@ -49,7 +49,7 @@ This project is a complete fraud detection pipeline that includes:
 
 ## ⚙️ Installation
 1. Clone the repository:
-git clone (https://github.com/Vasanthkumar5648/Titanic_Machine_Learning)
+git clone (https://github.com/Vasanthkumar5648/Fraud_Detection_Capstone)
 cd fraud-detection-capstone
 
 2. Install requirements:
